@@ -10,4 +10,5 @@ const math = (num1, num2, num3, num4) => {
   return a;
 };
 
-export default math;
+//export default math;
+module.exports = math;
