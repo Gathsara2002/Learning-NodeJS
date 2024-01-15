@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 
 import { readFile } from "node:fs";
 import { error, log } from "console";
-import { writeFile } from "fs";
+import { appendFile, writeFile } from "fs";
 
 // console.log(os.platform()); //win32
 // console.log(os.version()); //Windows 10 Home Single Language
@@ -43,6 +43,12 @@ import { writeFile } from "fs";
 
 // write file
 
-writeFile(join(__dirname, "write.txt"), "Hello Nodejs 1", "ascii", (err) => {
+// writeFile(join(__dirname, "write.txt"), "Hello Nodejs 1", "utf-8", (err) => {
+//   log(err);
+// });
+
+//append file
+
+appendFile(join(__dirname, "write.txt"), "Hello Nodejs append new line", "utf-8", (err) => {
   log(err);
 });
