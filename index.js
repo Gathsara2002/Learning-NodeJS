@@ -85,25 +85,37 @@ import { appendFile, rename, rm, writeFile } from "node:fs/promises";
 
 //read file
 
-readFile(join(__dirname, "myName.txt"), {
-  encoding: "utf-8",
-})
-  .then((data) => log(data))
-  .catch((err) => log(err));
+// readFile(join(__dirname, "myName.txt"), {
+//   encoding: "utf-8",
+// })
+//   .then((data) => log(data))
+//   .catch((err) => log(err));
 
 //write file
 
-const writeFun = async (data) => {
-  try {
-    await writeFile(join(__dirname, "write.js"), data, {
-      encoding: "utf-8",
-    });
-  } catch (error) {
-    log(error);
-  }
-};
+// const writeFun = async (data) => {
+//   try {
+//     await writeFile(join(__dirname, "write.js"), data, {
+//       encoding: "utf-8",
+//     });
+//   } catch (error) {
+//     log(error);
+//   }
+// };
 
-writeFun(`
-const a = 'gathsara';
-console.log(a)
-`);
+// writeFun(`
+// const a = 'gathsara';
+// console.log(a)
+// `);
+
+//append file
+
+appendFile(
+  join(__dirname, "write.js"),
+  `
+const c = 'upul';
+console.log(e);
+`
+)
+  .then((res) => log(res))
+  .catch((err) => log(err));
