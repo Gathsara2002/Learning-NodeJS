@@ -8,9 +8,10 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-import { readFile } from "node:fs";
+import { readFile } from "node:fs/promises";
 import { error, log } from "console";
-import { appendFile, rename, rm, writeFile } from "fs";
+//import { appendFile, rename, rm, writeFile } from "fs";
+import { appendFile, rename, rm, writeFile } from "fs/promises";
 
 // console.log(os.platform()); //win32
 // console.log(os.version()); //Windows 10 Home Single Language
@@ -29,6 +30,8 @@ import { appendFile, rename, rm, writeFile } from "fs";
 //     ext: '.js',
 //     name: 'index'
 //   }
+
+// -------------------Callback API------------------------------
 
 // read file
 
@@ -74,6 +77,14 @@ import { appendFile, rename, rm, writeFile } from "fs";
 
 //rename file
 
-rename(join(__dirname, "write.js"), join(__dirname, "newFile.js"), () => {
-  log("rename file");
-});
+// rename(join(__dirname, "write.js"), join(__dirname, "newFile.js"), () => {
+//   log("rename file");
+// });
+
+// ---------------------------Promise API---------------------------------
+
+readFile(join(__dirname, "myName.txt"), {
+  encoding: "utf-8",
+})
+  .then((data) => log(data))
+  .catch((err) => log(err));
