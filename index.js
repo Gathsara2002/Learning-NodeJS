@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 import { readFile } from "node:fs/promises";
 import { error, log } from "console";
 //import { appendFile, rename, rm, writeFile } from "fs";
-import { appendFile, rename, rm, writeFile } from "fs/promises";
+import { appendFile, rename, rm, writeFile } from "node:fs/promises";
 
 // console.log(os.platform()); //win32
 // console.log(os.version()); //Windows 10 Home Single Language
@@ -83,8 +83,27 @@ import { appendFile, rename, rm, writeFile } from "fs/promises";
 
 // ---------------------------Promise API---------------------------------
 
+//read file
+
 readFile(join(__dirname, "myName.txt"), {
   encoding: "utf-8",
 })
   .then((data) => log(data))
   .catch((err) => log(err));
+
+//write file
+
+const writeFun = async (data) => {
+  try {
+    await writeFile(join(__dirname, "write.js"), data, {
+      encoding: "utf-8",
+    });
+  } catch (error) {
+    log(error);
+  }
+};
+
+writeFun(`
+const a = 'gathsara';
+console.log(a)
+`);
