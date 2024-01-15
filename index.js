@@ -2,14 +2,15 @@
 //const path = require("path");
 
 import os from "os";
-import path from "path";
+import path, { join } from "path";
 
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 import { readFile } from "node:fs";
-import { error } from "console";
+import { error, log } from "console";
+import { writeFile } from "fs";
 
 // console.log(os.platform()); //win32
 // console.log(os.version()); //Windows 10 Home Single Language
@@ -29,6 +30,8 @@ import { error } from "console";
 //     name: 'index'
 //   }
 
+// read file
+
 // readFile(path.join(__dirname, "myName.txt"), "utf-8", (error, data) => {
 //   if (error) {
 //     console.log(error);
@@ -37,3 +40,9 @@ import { error } from "console";
 //   console.log(data);
 //   console.log(data.toString());
 // });
+
+// write file
+
+writeFile(join(__dirname, "write.txt"), "Hello Nodejs 1", "ascii", (err) => {
+  log(err);
+});
