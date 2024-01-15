@@ -29,11 +29,11 @@ import { error } from "console";
 //     name: 'index'
 //   }
 
-readFile(path.join(__dirname, "myName.txt"), "utf-8", (error, data) => {
-  if (error) {
-    console.log(error);
-  }
+// readFile(path.join(__dirname, "myName.txt"), "utf-8", (error, data) => {
+//   if (error) {
+//     console.log(error);
+//   }
 
-  console.log(data);
-  console.log(data.toString());
-});
+//   console.log(data);
+//   console.log(data.toString());
+// });
