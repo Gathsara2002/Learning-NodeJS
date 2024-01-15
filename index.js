@@ -110,12 +110,36 @@ import { appendFile, rename, rm, writeFile } from "node:fs/promises";
 
 //append file
 
-appendFile(
-  join(__dirname, "write.js"),
-  `
-const c = 'upul';
-console.log(e);
-`
-)
-  .then((res) => log(res))
-  .catch((err) => log(err));
+// appendFile(
+//   join(__dirname, "write.js"),
+//   `
+// const c = 'upul';
+// console.log(e);
+// `
+// )
+//   .then((res) => log(res))
+//   .catch((err) => log(err));
+
+
+//---------------------------Sync API------------------------------
+
+// const data = readFileSync(join(__dirname, "myName"), {
+//   encoding: "utf-8",
+// });
+
+// log(data);
+
+// writeFileSync(
+//   join(__dirname, "write.js"),
+//   `
+// const c = 'upul';
+// `
+// );
+
+// appendFileSync(
+//   join(__dirname, "write.js"),
+//   `
+// console.log(c)
+// `
+// );
+
