@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 
 import { readFile } from "node:fs";
 import { error, log } from "console";
-import { appendFile, rm, writeFile } from "fs";
+import { appendFile, rename, rm, writeFile } from "fs";
 
 // console.log(os.platform()); //win32
 // console.log(os.version()); //Windows 10 Home Single Language
@@ -68,6 +68,12 @@ import { appendFile, rm, writeFile } from "fs";
 
 //remove file
 
-rm(join(__dirname, "write.txt"), () => {
-  log("remove file");
+// rm(join(__dirname, "write.txt"), () => {
+//   log("remove file");
+// });
+
+//rename file
+
+rename(join(__dirname, "write.js"), join(__dirname, "newFile.js"), () => {
+  log("rename file");
 });
