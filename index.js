@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 
 import { readFile } from "node:fs";
 import { error, log } from "console";
-import { appendFile, writeFile } from "fs";
+import { appendFile, rm, writeFile } from "fs";
 
 // console.log(os.platform()); //win32
 // console.log(os.version()); //Windows 10 Home Single Language
@@ -49,6 +49,25 @@ import { appendFile, writeFile } from "fs";
 
 //append file
 
-appendFile(join(__dirname, "write.txt"), "Hello Nodejs append new line", "utf-8", (err) => {
-  log(err);
+// appendFile(join(__dirname, "write.txt"), "Hello Nodejs append new line", "utf-8", (err) => {
+//   log(err);
+// });
+
+// appendFile(
+//   join(__dirname, "write.js"),
+//   `
+//   const a='Liviru';
+//    console.log(a);
+
+// `,
+//   "utf-8",
+//   (err) => {
+//     log(err);
+//   }
+// );
+
+//remove file
+
+rm(join(__dirname, "write.txt"), () => {
+  log("remove file");
 });
