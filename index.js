@@ -31,24 +31,51 @@ import inquirer from "inquirer";
 // ? Input username :  Gathsara
 //{ 'Username : ': 'Gathsara' }
 
+const info = [];
+
 (async () => {
   do {
     const res = await inquirer.prompt([
       {
         type: "input",
-        name: "Name",
-        message: "Input name",
+        message: "Enter Student Name",
+        name: "name",
+      },
+      {
+        type: "number",
+        message: "Enter Student age",
+        name: "age",
+      },
+      {
+        type: "input",
+        message: "Enter Student city",
+        name: "city",
+      },
+      {
+        type: "list",
+        message: "Enter Student Class",
+        choices: ["class 1", "class 2", "class 3", "class 4"],
+        name: "stuclass",
+      },
+      {
+        type: "checkbox",
+        message: "Enter Student Subject",
+        choices: ["java", "javascript", "python", "golang", "dart"],
+        name: "subject",
       },
       {
         type: "confirm",
-        name: "Check",
-        message: "Have other values",
+        message: "Have more Students",
+        name: "check",
       },
     ]);
 
-    log(res);
-    if (!res.Check) {
+    const { check, ...data } = res;
+    info.push(data);
+    if (!res.check) {
       break;
     }
   } while (true);
+
+  log(info);
 })();
