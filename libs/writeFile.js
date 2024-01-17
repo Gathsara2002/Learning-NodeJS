@@ -1,23 +1,21 @@
-import { log } from "node:console";
-import { read, readFile } from "node:fs";
+import { writeFile } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const fileRead = (path, yourFun = (d) => {}) => {
-  readFile(
+const fileWrite = (path, data, yourFun = (d) => {}) => {
+  writeFile(
     join(__dirname, `../${path}`),
+    data,
     { encoding: "utf-8" },
-    (err, data) => {
-      if (err) {
-        log(err);
-      } else {
-        yourFun(data);
+    (err) => {
+      if (!err) {
+        yourFun("your file is created");
       }
     }
   );
 };
 
-export default fileRead;
+export default fileWrite;
