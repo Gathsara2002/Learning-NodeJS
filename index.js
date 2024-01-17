@@ -16,13 +16,39 @@ import inquirer from "inquirer";
 //   }
 // });
 
-inquirer
-  .prompt([
-    {
-      type: "input",
-      name: "Username : ",
-      message: "Input username : ",
-    },
-  ])
-  .then((res) => log(res))
-  .catch((err) => log(err));
+// inquirer
+//   .prompt([
+//     {
+//       type: "input",
+//       name: "Username : ",
+//       message: "Input username : ",
+//     },
+//   ])
+//   .then((res) => log(res))
+//   .catch((err) => log(err));
+
+//output -
+// ? Input username :  Gathsara
+//{ 'Username : ': 'Gathsara' }
+
+(async () => {
+  do {
+    const res = await inquirer.prompt([
+      {
+        type: "input",
+        name: "Name",
+        message: "Input name",
+      },
+      {
+        type: "confirm",
+        name: "Check",
+        message: "Have other values",
+      },
+    ]);
+
+    log(res);
+    if (!res.Check) {
+      break;
+    }
+  } while (true);
+})();
