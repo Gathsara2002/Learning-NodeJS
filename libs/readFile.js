@@ -6,16 +6,17 @@ import { fileURLToPath } from "node:url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const fileRead = () => {
+const fileRead = (path) => {
   readFile(
-    join(__dirname, '../read.txt'),
+    join(__dirname, path),
     { encoding: "utf-8" },
     (err, data) => {
       log(data);
+      log(join(__dirname, '../read.txt'));
     }
   );
 };
 
-fileRead();
+fileRead('../read.txt');
 
 //   export default fileRead;
