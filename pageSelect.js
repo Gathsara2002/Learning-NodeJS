@@ -5,8 +5,11 @@ import Home from "./pages/home.js";
 import NotFound from "./pages/not-found.js";
 import { URL } from "node:url";
 
-
 export const pageSelect = (url, res) => {
+  //catch search params
+  const urlParams = new URL(`http://localhost:4000/${url}`);
+  log(urlParams.searchParams);
+
   if (url === "/") {
     res.write(Home());
   } else if (url === "/about") {
