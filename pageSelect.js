@@ -1,8 +1,8 @@
 import { log } from "node:console";
-import About from "./page/about.js";
-import Contact from "./page/contact.js";
-import Home from "./page/home.js";
-import NotFound from "./page/not-found.js";
+import About from "./pages/about.js";
+import Contact from "./pages/contact.js";
+import Home from "./pages/home.js";
+import NotFound from "./pages/not-found.js";
 import { URL } from "node:url";
 
 
