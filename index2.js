@@ -32,6 +32,9 @@ import { cardGen } from "./libs/htmlCardGen.js";
 // ? Input username :  Gathsara
 //{ 'Username : ': 'Gathsara' }
 
+
+//Task 2 - write html file using filewrite
+
 const info = [];
 
 (async () => {
