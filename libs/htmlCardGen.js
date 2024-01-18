@@ -1,4 +1,4 @@
-const cardGent = (name, age, stuClass, subjects = []) => {
+export const cardGen = (name, age, stuClass, subjects = []) => {
 
   let sub = "";
   subjects?.forEach((ele) => {
@@ -16,5 +16,5 @@ const cardGent = (name, age, stuClass, subjects = []) => {
       ${sub}
     </div>
   </div>`;
-  
+
 };

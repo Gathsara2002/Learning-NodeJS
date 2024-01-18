@@ -2,6 +2,7 @@ import fileRead from "./libs/readFile.js";
 import { log } from "node:console";
 import fileWrite from "./libs/writeFile.js";
 import inquirer from "inquirer";
+import { cardGen } from "./libs/htmlCardGen.js";
 
 //write file that get from another file reading - task 1
 
@@ -34,6 +35,8 @@ import inquirer from "inquirer";
 const info = [];
 
 (async () => {
+  let allCards = "";
+
   do {
     const res = await inquirer.prompt([
       {
@@ -77,5 +80,26 @@ const info = [];
     }
   } while (true);
 
-  log(info);
+  info.forEach(({ name, age, stuclass, subject }) => {
+    allCards += cardGen(name, age, stuclass, subject);
+  });
+
+  log(allCards);
+
+  const htmlContent = `<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Student Infor</title>
+      <link href="./index.css" rel="stylesheet" />
+    </head>
+    <body>
+      <main class="main">
+  ${allCards}
+      </main>
+    </body>
+  </html>`;
+
+  fileWrite("index.html", htmlContent, (d) => log(d));
 })();
