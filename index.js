@@ -21,3 +21,7 @@ emiterObj.once('onClick2',()=>{
 emiterObj.emit('onClick1');
 emiterObj.emit('onClick1');
 emiterObj.emit('onClick2');
+
+//remove event
+emiterObj.removeAllListeners('onClick1');
+emiterObj.emit('onClick1');
