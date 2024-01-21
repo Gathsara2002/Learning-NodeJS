@@ -8,8 +8,16 @@ class AUKEmitter extends EventEmitter {}
 const emiterObj = new AUKEmitter();
 
 //create event
-emiterObj.on('eName',()=>{
-    log("Event fired");
+emiterObj.on('onClick1',()=>{
+    log("Event1 fired");
 })
 
-emiterObj.emit('eName');
+//create event that only run once
+emiterObj.once('onClick2',()=>{
+    log("Event2 fired");
+})
+
+//fire event
+emiterObj.emit('onClick1');
+emiterObj.emit('onClick1');
+emiterObj.emit('onClick2');
