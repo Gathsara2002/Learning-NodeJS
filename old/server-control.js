@@ -1,6 +1,6 @@
 import { log } from "node:console";
-import { fileRead } from "./old/libs/read-file.js";
-import { selectContentType } from "./old/libs/select-content-type.js";
+import { fileRead } from "./libs/read-file.js";
+import { selectContentType } from "./libs/select-content-type.js";
 
 export const server = (req, res) => {
   if (req.url === "/" && req.method === "GET") {
