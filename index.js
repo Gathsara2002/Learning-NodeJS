@@ -9,7 +9,7 @@ const __dirname = dirname(__filename);
 
 log(process.env.KEY);
 
-//create  mail serber
+//create  mail server using google
 const mailServer = createTransport({
   service: "gmail",
   auth: {
@@ -20,6 +20,19 @@ const mailServer = createTransport({
   },
 });
 
+//create  mail server using outlook
+// const mailServer2 = createTransport({
+//   host: "smtp.office365.com",
+//   port: 587,
+//   secure: false,
+//   auth: {
+//     // user: "youremail@gmail.com",
+//     // pass: "yourpassword",
+//     user: process.env.FROM_EMAIL,
+//     pass: process.env.EMAIL_PW,
+//   },
+// });
+
 log("email send start");
 
 //send email
@@ -28,7 +41,7 @@ mailServer.sendMail(
     from: process.env.FROM_EMAIL,
     to: process.env.TO_EMAIL,
     subject: "new msg",
-    text:'Hello'
+    text: "Hello",
   },
   (err, infor) => {
     if (err) {
