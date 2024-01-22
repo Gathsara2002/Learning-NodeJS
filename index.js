@@ -42,6 +42,10 @@ mailServer.sendMail(
     to: process.env.TO_EMAIL,
     subject: "new msg",
     text: "Hello",
+    attachments:[{
+      filename: "mail.txt",
+        path: join(__dirname, "mail.txt"),
+    }]
   },
   (err, infor) => {
     if (err) {
