@@ -14,5 +14,13 @@ db.connect((err) => {
     log(err);
   } else {
     log("db connected");
+    const sqlQuery = "SELECT * FROM `students`";
+        db.query(sqlQuery, (err, result) => {
+          if (err) {
+            log(err);
+          } else {
+            log(result);
+          }
+        });
   }
 });
